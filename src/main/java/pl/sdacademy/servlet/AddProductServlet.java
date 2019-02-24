@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/AddProduct")
+@WebServlet(value = "/AddProduct", name = "AddProductServlet")
 public class AddProductServlet extends HttpServlet {
     private ProductDatabase productDatabase;
 

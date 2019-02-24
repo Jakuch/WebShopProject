@@ -32,7 +32,7 @@
     Object error = request.getAttribute("error");
     if (error != null) {
 %>
-<div style="color: red; text-align: center; font-size: 40px"><b><%=error%></b></div>
+<div style="color: red; text-align: center; font-size: 64px"><b><%=error%></b></div>
 <% } %>
 <jsp:include page="footer.jsp">
     <jsp:param name="" value=""/>

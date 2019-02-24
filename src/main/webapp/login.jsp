@@ -30,7 +30,7 @@
     </form>
 </div>
 <%
-    Object error = request.getAttribute("login_error");
+    Object error = request.getAttribute("error");
     if (error != null) {
 %>
 <p style="color: red; text-align: center; font-size: 40px"><b><%=error%></b></p>

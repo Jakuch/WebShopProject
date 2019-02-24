@@ -1,4 +1,5 @@
-<%--
+<%@ page import="pl.sdacademy.model.User" %>
+<%@ page import="java.util.Objects" %><%--
   Created by IntelliJ IDEA.
   User: Kuba
   Date: 2019-02-17
@@ -38,8 +39,8 @@
         <input type="text" name="quantity">
     </label><br>
     <label style="margin-top: 5px">
-            <input type="submit" name="submit" value="Add product">
-            <input type="reset" name="reset" value="Reset">
+        <input type="submit" name="submit" value="Add product">
+        <input type="reset" name="reset" value="Reset">
     </label>
 </form>
 <jsp:include page="footer.jsp">
