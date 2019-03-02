@@ -17,19 +17,17 @@ public class ImageFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+        filterChain.doFilter(servletRequest, servletResponse);
         final HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
         final HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
 
         if (httpServletRequest.getAttribute("Product") != null) {
             final Product product = (Product) httpServletRequest.getAttribute("Product");
             if (product.getImageUrl() == null) {
-
                 product.setImageUrl("/resources/owl.jpg");
             }
         }
-
-        filterChain.doFilter(servletRequest, servletResponse);
-
+        //TODO not working properly
     }
 
     @Override

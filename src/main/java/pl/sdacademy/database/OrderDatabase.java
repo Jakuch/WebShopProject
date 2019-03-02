@@ -13,27 +13,20 @@ public class OrderDatabase {
         private static final OrderDatabase INSTANCE = new OrderDatabase();
     }
 
+    private static Long currentId = 0L;
     private List<Order> orders;
 
-    public OrderDatabase() {
+    private OrderDatabase() {
         this.orders = new LinkedList<>();
     }
 
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
-    public Long createOrder(Long orderId, String userMail, String address, Map<Product, Integer> products){
-        Order order = new Order(orderId, userMail, address, products);
+    public Long createOrder(final String userMail, final String address, final Map<Product, Integer> cart){
+        Order order = new Order(currentId, userMail, address, cart);
         orders.add(order);
-        return orderId;
+        return currentId++;
     }
 
-    public List<Order> getOrdersFromUser(String userMail) {
+    public List<Order> getOrdersFromUser(final String userMail) {
         return orders.stream()
                 .filter(order -> order.getUserEmail().equalsIgnoreCase(userMail))
                 .collect(Collectors.toList());
