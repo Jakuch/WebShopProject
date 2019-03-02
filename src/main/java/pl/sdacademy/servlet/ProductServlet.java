@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/Product")
+@WebServlet(value = "/Product", name = "ProductServlet")
 public class ProductServlet extends HttpServlet {
     private ProductDatabase productDatabase;
 
@@ -39,6 +39,7 @@ public class ProductServlet extends HttpServlet {
         httpServletRequest.setAttribute("description", product.getDescription());
         httpServletRequest.setAttribute("category", product.getCategory());
         httpServletRequest.setAttribute("quantity", product.getQuantity());
+        httpServletRequest.setAttribute("imageUrl", product.getImageUrl());
     }
 
 

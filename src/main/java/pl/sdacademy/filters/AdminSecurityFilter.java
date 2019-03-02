@@ -22,7 +22,8 @@ public class AdminSecurityFilter implements Filter {
         HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
 
         if (httpServletRequest.getMethod().equalsIgnoreCase("POST") || httpServletRequest.getMethod().equalsIgnoreCase("GET")) {
-            final User user = (User) httpServletRequest.getSession().getAttribute("user");
+            final HttpSession session = httpServletRequest.getSession(false);
+            final User user = (User) session.getAttribute("user");
 
             if (user != null && user.getRoles().contains("admin")) {
                 filterChain.doFilter(servletRequest, servletResponse);

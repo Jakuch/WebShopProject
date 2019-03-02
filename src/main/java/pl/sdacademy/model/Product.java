@@ -10,6 +10,18 @@ public class Product {
     private long price;
     private String category;
     private int quantity;
+    private String imageUrl;
+
+    public Product(Long id, LocalDateTime creationDate, String name, String description, long price, String category, String imageUrl, int quantity) {
+        this.id = id;
+        this.creationDate = creationDate;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.category = category;
+        this.quantity = quantity;
+        this.imageUrl = imageUrl;
+    }
 
     public Product(Long id, LocalDateTime creationDate, String name, String description, long price, String category, int quantity) {
         this.id = id;
@@ -28,6 +40,14 @@ public class Product {
         this.description = description;
         this.price = price;
         this.category = category;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {

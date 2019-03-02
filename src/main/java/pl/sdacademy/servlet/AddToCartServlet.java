@@ -44,7 +44,8 @@ public class AddToCartServlet extends HttpServlet {
         } else {
             httpServletRequest.setAttribute("error", "Product not found!");
         }
-        httpServletRequest.getRequestDispatcher("/Cart").forward(httpServletRequest, httpServletResponse);
+        httpServletResponse.sendRedirect("/Cart");
+//        httpServletRequest.getRequestDispatcher("/Cart").forward(httpServletRequest, httpServletResponse);
 
 
     }

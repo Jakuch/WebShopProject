@@ -16,15 +16,46 @@
 <jsp:include page="header.jsp">
     <jsp:param name="pageHeader" value=""/>
 </jsp:include>
-
 <%
     Product product = (Product) request.getAttribute("Product");
 %>
-<p>Product name: <%=product.getName()%></p>
-<p>Product name: <%=product.getPrice()%></p>
-<p>Product name: <%=product.getDescription()%></p>
-<p>Product name: <%=product.getCategory()%></p>
-<p>Product name: <%=product.getQuantity()%></p>
+<c:choose>
+    <c:when test="product != null">
+        <p>Product name: <%=product.getName()%>
+        </p>
+        <p>Product price: <%=product.getPrice()%>
+        </p>
+        <p>Product description: <%=product.getDescription()%>
+        </p>
+        <p>Product category: <%=product.getCategory()%>
+        </p>
+        <p>Product quantity: <%=product.getQuantity()%>
+        </p>
+        <img src="<%=product.getImageUrl()%>"/>
+        <div>
+            <jsp:include page="addToCart.jsp">
+                <jsp:param name="id" value="${product.id}"/>
+            </jsp:include>
+        </div>
+    </c:when>
+    <c:otherwise>
+        <p>Product name: ${product.name}
+        </p>
+        <p>Product price: ${product.price}
+        </p>
+        <p>Product description: ${product.description}
+        </p>
+        <p>Product category: ${product.category}
+        </p>
+        <p>Product quantity: ${product.quantity}
+        </p>
+        <div>
+            <jsp:include page="addToCart.jsp">
+                <jsp:param name="id" value="${product.id}"/>
+            </jsp:include>
+        </div>
+    </c:otherwise>
+</c:choose>
 
 <jsp:include page="footer.jsp">
     <jsp:param name="pageFooter" value=""/>

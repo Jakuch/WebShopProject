@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/HomePage")
+@WebServlet(value = "/HomePage", name = "HomePageServlet")
 public class HomePageServlet extends HttpServlet {
     private ProductDatabase products;
 
