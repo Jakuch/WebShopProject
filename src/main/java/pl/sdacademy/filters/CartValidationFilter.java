@@ -24,8 +24,10 @@ public class CartValidationFilter implements Filter {
 
         HttpSession session = httpServletRequest.getSession(false);
         Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
-        if(cart != null) {
+        if(cart != null && !cart.isEmpty()) {
             filterChain.doFilter(servletRequest, servletResponse);
+        } else {
+            httpServletResponse.sendRedirect("/HomePage");
         }
     }
 

@@ -9,7 +9,7 @@
     <jsp:param name="" value=""/>
 </jsp:include>
 <div style="border: solid blue; padding: 10px 10px 10px 10px">
-    <jsp:include page="homePageView.jsp">
+    <jsp:include page="productListView.jsp">
         <jsp:param name="" value=""/>
     </jsp:include>
 </div>

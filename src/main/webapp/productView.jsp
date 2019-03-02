@@ -11,7 +11,23 @@
     <title>Product View</title>
 </head>
 <body>
-
-<%--TODO--%>
+<p>Product name: ${param.name}
+</p>
+<p>Product price: ${param.price}
+</p>
+<p>Product description: ${param.description}
+</p>
+<p>Product category: ${param.category}
+</p>
+<p>Product quantity: ${param.quantity}
+</p>
+<p>
+    <img src="${param.imageUrl}" alt="Nope"/>
+</p>
+<div>
+    <jsp:include page="addToCart.jsp">
+        <jsp:param name="id" value="${param.id}"/>
+    </jsp:include>
+</div>
 </body>
 </html>

@@ -11,12 +11,14 @@
     <title>Last Viewed</title>
 </head>
 <body>
-<h4 style="text-align: center; border: solid green">Last seen products:</h4>
+<h4 style="text-align: center; border: solid green">Last viewed product:</h4>
+<a style="color: black" href="Product?id=${lastViewed.id}">
 <div style="position: relative; right: 0; border: solid; padding: 5px 5px 5px 5px">
     <p>Name: ${lastViewed.name}</p>
     <p>Price: ${lastViewed.price}</p>
     <p>Category: ${lastViewed.category}</p>
     <p>Quantity: ${lastViewed.quantity}</p>
 </div>
+</a>
 </body>
 </html>

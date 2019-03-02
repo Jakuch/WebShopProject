@@ -26,21 +26,15 @@ public class ProductServlet extends HttpServlet {
 
         if (idValue != null) {
             Product product = productDatabase.getProducts().get(Integer.parseInt(idValue));
-            setProductParameters(httpServletRequest, product);
+            httpServletRequest.setAttribute("name", product.getName());
+            httpServletRequest.setAttribute("price", product.getPrice());
+            httpServletRequest.setAttribute("description", product.getDescription());
+            httpServletRequest.setAttribute("category", product.getCategory());
+            httpServletRequest.setAttribute("quantity", product.getQuantity());
+            httpServletRequest.setAttribute("imageUrl", product.getImageUrl());
+
         }
         httpServletResponse.addCookie(new Cookie("lastViewed", idValue));
         httpServletRequest.getRequestDispatcher("/product.jsp").forward(httpServletRequest, httpServletResponse);
     }
-
-
-    private void setProductParameters(HttpServletRequest httpServletRequest, Product product) {
-        httpServletRequest.setAttribute("name", product.getName());
-        httpServletRequest.setAttribute("price", product.getPrice());
-        httpServletRequest.setAttribute("description", product.getDescription());
-        httpServletRequest.setAttribute("category", product.getCategory());
-        httpServletRequest.setAttribute("quantity", product.getQuantity());
-        httpServletRequest.setAttribute("imageUrl", product.getImageUrl());
-    }
-
-
 }

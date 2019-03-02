@@ -14,51 +14,17 @@
 </head>
 <body>
 <jsp:include page="header.jsp">
-    <jsp:param name="pageHeader" value=""/>
+    <jsp:param name="" value=""/>
 </jsp:include>
-<%
-    Product product = (Product) request.getAttribute("Product");
-%>
-<c:choose>
-    <c:when test="product != null">
-        <p>Product name: <%=product.getName()%>
-        </p>
-        <p>Product price: <%=product.getPrice()%>
-        </p>
-        <p>Product description: <%=product.getDescription()%>
-        </p>
-        <p>Product category: <%=product.getCategory()%>
-        </p>
-        <p>Product quantity: <%=product.getQuantity()%>
-        </p>
-        <img src="<%=product.getImageUrl()%>"/>
-        <div>
-            <jsp:include page="addToCart.jsp">
-                <jsp:param name="id" value="${product.id}"/>
-            </jsp:include>
-        </div>
-    </c:when>
-    <c:otherwise>
-        <p>Product name: ${product.name}
-        </p>
-        <p>Product price: ${product.price}
-        </p>
-        <p>Product description: ${product.description}
-        </p>
-        <p>Product category: ${product.category}
-        </p>
-        <p>Product quantity: ${product.quantity}
-        </p>
-        <div>
-            <jsp:include page="addToCart.jsp">
-                <jsp:param name="id" value="${product.id}"/>
-            </jsp:include>
-        </div>
-    </c:otherwise>
-</c:choose>
-
+<jsp:include page="productView.jsp">
+    <jsp:param name="name" value="${name}"/>
+    <jsp:param name="price" value="${price}"/>
+    <jsp:param name="description" value="${description}"/>
+    <jsp:param name="category" value="${category}"/>
+    <jsp:param name="quantity" value="${quantity}"/>
+</jsp:include>
 <jsp:include page="footer.jsp">
-    <jsp:param name="pageFooter" value=""/>
+    <jsp:param name="" value=""/>
 </jsp:include>
 </body>
 </html>

@@ -15,12 +15,6 @@
 <body>
 <h2 style="text-align: center">Product ordered!</h2>
 <%
-    if (session.getAttribute("orderId") != null) {
-%>
-<p>Order id: <%=session.getAttribute("orderId").toString()%>
-</p>
-<%
-    }
     Map<Product, Integer> cart = (Map<Product, Integer>) session.getAttribute("cart");
     Long value = 0L;
     for (Map.Entry entry : cart.entrySet()) {
@@ -32,12 +26,16 @@
 <% User user = (User)session.getAttribute("user");
     if (user != null) {
 %>
+<p>Order ID: <%=request.getParameter("id")%></p>
 <p>User: <%=user.getUserName()%></p>
 <p>Address: <%=session.getAttribute("address")%></p>
 <%} else {%>
+<p>Order ID: <%=request.getAttribute("orderID")%></p>
 <p>Email: <%=request.getAttribute("userMail")%></p>
 <p>Address: <%=request.getAttribute("address")%></p>
 <%}%>
-
+<jsp:include page="footer.jsp">
+    <jsp:param name="" value=""/>
+</jsp:include>
 </body>
 </html>

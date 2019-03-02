@@ -12,7 +12,9 @@
     <title>Footer</title>
 </head>
 <body>
-<div style="display: inline-block; bottom: 0; width: 100%">
+<div style="display: inline-block; bottom: 0; width: 100%; margin-top: 10px">
+    <a style="font-size: 10px; color: darkgrey; border-style: outset; padding: 2px 2px 2px 2px" href="${pageContext.request.contextPath}/HomePage">Home
+        Page</a>
     <%DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyy-MM-dd HH:MM:SS");%>
     <p style="font-size: 10px; color: darkgrey"><%=dateTimeFormatter.format(LocalDateTime.now())%> Created by Jakuch</p>
 </div>

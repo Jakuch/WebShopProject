@@ -26,12 +26,13 @@ public class UserValidationFilter implements Filter {
         User user = (User) session.getAttribute("user");
 
         if (user != null) {
-            Optional<String> userRole = user.getRoles().stream()
-                    .filter(role -> role.equalsIgnoreCase("user"))
-                    .findFirst();
+            boolean roleExists = user.getRoles().stream()
+                    .anyMatch(role -> role.equalsIgnoreCase("user"));
 
-            if (userRole.isPresent()) {
+            if (roleExists) {
                 filterChain.doFilter(servletRequest, servletResponse);
+            } else {
+                httpServletResponse.sendRedirect("/Login");
             }
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
